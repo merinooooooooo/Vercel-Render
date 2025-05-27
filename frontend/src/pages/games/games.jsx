@@ -49,20 +49,26 @@ const Games = () => {
           ? `http://localhost:4000/api/games/${games[editIndex]._id}`
           : 'http://localhost:4000/api/games';
 
+      // Enviar los datos al servidor usando fetch
       const res = await fetch(url, {
-        method,
+        method: method,
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(formData),
       });
 
-      const data = await res.json();
-      alert(data.message || (editIndex !== null ? 'Juego actualizado' : 'Juego creado'));
+      const data = await res.json(); // Procesa la respuesta como JSON
 
-      setFormData({ nombre: '', categoria: '', ApMinima: '', ApMaxima: '' });
-      setEditIndex(null);
-      fetchGames();
+      // Verifica si la respuesta fue exitosa
+      if (res.ok) {
+        alert(data.message || (editIndex !== null ? 'Juego actualizado' : 'Juego creado'));
+        setFormData({ nombre: '', categoria: '', ApMinima: '', ApMaxima: '' });
+        setEditIndex(null);
+        fetchGames(); // Recarga la lista de juegos
+      } else {
+        alert('Ocurrió un error: ' + (data.message || 'Intenta nuevamente.'));
+      }
     } catch (error) {
       console.error('Error al guardar el juego:', error);
       alert('Ocurrió un error al guardar el juego.');
@@ -103,7 +109,7 @@ const Games = () => {
 
       <form onSubmit={handleSubmit} className="row g-3 w-75">
         <div className="col-md-6">
-          <label className="form-label">Nombre</label>
+          <label className="form-label">Nombre: {formData.nombre}</label>
           <input
             type="text"
             className="form-control"
@@ -115,7 +121,7 @@ const Games = () => {
         </div>
 
         <div className="col-md-6">
-          <label className="form-label">Categoría</label>
+          <label className="form-label">Categoría {formData.categoria}</label>
           <input
             type="text"
             className="form-control"
