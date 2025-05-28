@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'r
 import Nav from "./components/Nav/Nav" 
 /*import './App.css'*/
 import Games from "./pages/games/games"
+import Clients from './pages/clients/clients';
 
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
           <Nav />
           <Routes>
            <Route path="/games" element={<Games />} />
+          </Routes>
+          <Routes>
+           <Route path="/clients" element={<Clients />} />
           </Routes>
         </Router>
     

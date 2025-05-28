@@ -2,13 +2,13 @@ const clientsController = {};
 import clientsModel from "../models/clients.js";
 
 // SELECT
-clientsController.getclients = async (req, res) => {
+clientsController.getClients = async (req, res) => {
   const clientes = await clientsModel.find();
   res.json(clientes);
 };
 
 // INSERT
-clientsController.createclients = async (req, res) => {
+clientsController.createClients = async (req, res) => {
   const { nombre, correo,contraseña,edad, paisDeResidencia } = req.body;
   const newclients = new clientsModel({ nombre, correo,contraseña,edad, paisDeResidencia});
   await newclients.save();
@@ -16,7 +16,7 @@ clientsController.createclients = async (req, res) => {
 };
 
 // DELETE
-clientsController.deleteclients = async (req, res) => {
+clientsController.deleteClients = async (req, res) => {
 const deletedclients = await clientsModel.findByIdAndDelete(req.params.id);
   if (!deletedclients) {
     return res.status(404).json({ message: "clients dont find" });
@@ -25,7 +25,7 @@ const deletedclients = await clientsModel.findByIdAndDelete(req.params.id);
 };
 
 // UPDATE
-clientsController.updateclients = async (req, res) => {
+clientsController.updateClients = async (req, res) => {
   // Solicito todos los valores
   const { nombre, correo,contraseña,edad, paisDeResidencia  } = req.body;
   // Actualizo

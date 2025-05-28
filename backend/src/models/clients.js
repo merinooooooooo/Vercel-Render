@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import bcrypt from "bcryptjs";  // Importamos bcryptjs
 
-const customerSchema = new Schema(
+const clientsSchema = new Schema(
   {
     nombre: {
       type: String,
@@ -38,7 +38,7 @@ const customerSchema = new Schema(
 );
 
 // Encriptar la contraseña antes de guardar el cliente
-customerSchema.pre("save", async function(next) {
+clientsSchema.pre("save", async function(next) {
   if (!this.isModified("contraseña")) return next();  // Solo encripta si la contraseña ha sido modificada
 
   const salt = await bcrypt.genSalt(10);  // Generamos un "salt"
@@ -46,4 +46,4 @@ customerSchema.pre("save", async function(next) {
   next();
 });
 
-export default model("Customer", customerSchema);
+export default model("clients", clientsSchema);
