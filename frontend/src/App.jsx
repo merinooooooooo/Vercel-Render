@@ -15,11 +15,10 @@ function App() {
           <Nav />
           <Routes>
            <Route path="/games" element={<Games />} />
-          </Routes>
-          <Routes>
+       
+           <Route path="/" element={<Games />} />
            <Route path="/clients" element={<Clients />} />
-          </Routes>
-          <Routes>
+        
            <Route path="/gameCard" element={<CardGame />} />
           </Routes>
         </Router>
