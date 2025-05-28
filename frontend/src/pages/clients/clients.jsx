@@ -47,8 +47,8 @@ const Clients = () => {
       const method = editIndex !== null ? "PUT" : "POST";
       const url =
         editIndex !== null
-          ? `http://localhost:4000/api/clients/${clients[editIndex]._id}`
-          : "http://localhost:4000/api/clients";
+          ? `https://vercel-render-mx3j.onrender.com/api/clients/${clients[editIndex]._id}`
+          : "https://vercel-render-mx3j.onrender.com/api/clients";
 
       const res = await fetch(url, {
         method: method,
@@ -90,7 +90,7 @@ const Clients = () => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este cliente?")) {
       const id = clients[index]._id;
       try {
-        const res = await fetch(`http://localhost:4000/api/clients/${id}`, {
+        const res = await fetch(`https://vercel-render-mx3j.onrender.com/api/clients/${id}`, {
           method: "DELETE",
         });
         const data = await res.json();

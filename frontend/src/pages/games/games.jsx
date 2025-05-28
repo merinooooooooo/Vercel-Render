@@ -13,7 +13,7 @@ const Games = () => {
   // Obtener todos los juegos
   const fetchGames = async () => {
     try {
-      const res = await fetch('https://vercel-render-j2d3.onrender.com/4000/api/games');
+      const res = await fetch('https://vercel-render-mx3j.onrender.com/api/games');
       const data = await res.json();
       setGames(data);
     } catch (error) {
@@ -46,8 +46,8 @@ const Games = () => {
       const method = editIndex !== null ? 'PUT' : 'POST';
       const url =
         editIndex !== null
-          ? `http://localhost:4000/api/games/${games[editIndex]._id}`
-          : 'http://localhost:4000/api/games';
+          ? `https://vercel-render-mx3j.onrender.com/api/games/${games[editIndex]._id}`
+          : 'https://vercel-render-mx3j.onrender.com/api/games';
 
       // Enviar los datos al servidor usando fetch
       const res = await fetch(url, {
@@ -90,7 +90,7 @@ const Games = () => {
     if (window.confirm('¿Estás seguro de que deseas eliminar este juego?')) {
       const id = games[index]._id;
       try {
-        const res = await fetch(`http://localhost:4000/api/games/${id}`, {
+        const res = await fetch(`https://vercel-render-mx3j.onrender.com/api/games/${id}`, {
           method: 'DELETE',
         });
         const data = await res.json();
