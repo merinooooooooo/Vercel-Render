@@ -25,6 +25,9 @@ function Nav() {
                         <li className="nav-item">
                             <NavLink className="nav-link itemnav" to="/clients" activeClassName="active">Clients</NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link itemnav" to="/gameCard" activeClassName="active">GameCard</NavLink>
+                        </li>
                     </ul>
                 </div>
             </div>
