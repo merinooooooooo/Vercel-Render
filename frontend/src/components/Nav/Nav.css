@@ -2,8 +2,8 @@
   
     top: 0;
     width: 100%;
-    background-color: #2e9f54 !important;
-    border-color: #2e9f54 !important;
+    background-color: #010202 !important;
+    border-color: #010202 !important;
     z-index: 99999 !important;
 }
 
@@ -14,7 +14,7 @@
 
 /* Agregar una línea roja debajo del enlace activo */
 .nav-link.active {
-    border-bottom: 2px solid #db1752; /* Línea roja debajo del enlace activo */
+    border-bottom: 2px solid #ff004c; /* Línea roja debajo del enlace activo */
 }
 
 /* Estilos del navbar-toggler */
