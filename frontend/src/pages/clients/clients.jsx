@@ -14,7 +14,7 @@ const Clients = () => {
   // Obtener todos los clientes
   const fetchClients = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/customers");
+      const res = await fetch("http://localhost:4000/api/clients");
       const data = await res.json();
       setClients(data);
     } catch (error) {
@@ -47,8 +47,8 @@ const Clients = () => {
       const method = editIndex !== null ? "PUT" : "POST";
       const url =
         editIndex !== null
-          ? `http://localhost:4000/api/customers/${clients[editIndex]._id}`
-          : "http://localhost:4000/api/customers";
+          ? `http://localhost:4000/api/clients/${clients[editIndex]._id}`
+          : "http://localhost:4000/api/clients";
 
       const res = await fetch(url, {
         method: method,
@@ -90,7 +90,7 @@ const Clients = () => {
     if (window.confirm("¿Estás seguro de que deseas eliminar este cliente?")) {
       const id = clients[index]._id;
       try {
-        const res = await fetch(`http://localhost:4000/api/customers/${id}`, {
+        const res = await fetch(`http://localhost:4000/api/clients/${id}`, {
           method: "DELETE",
         });
         const data = await res.json();
