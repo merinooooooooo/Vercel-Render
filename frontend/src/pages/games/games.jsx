@@ -13,7 +13,7 @@ const Games = () => {
   // Obtener todos los juegos
   const fetchGames = async () => {
     try {
-      const res = await fetch('http://localhost:4000/api/games');
+      const res = await fetch('https://vercel-render-j2d3.onrender.com/4000/api/games');
       const data = await res.json();
       setGames(data);
     } catch (error) {

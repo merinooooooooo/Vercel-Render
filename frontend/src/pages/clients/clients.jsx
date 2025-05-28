@@ -14,7 +14,7 @@ const Clients = () => {
   // Obtener todos los clientes
   const fetchClients = async () => {
     try {
-      const res = await fetch("http://localhost:4000/api/clients");
+      const res = await fetch("https://vercel-render-j2d3.onrender.com/4000/api/clients");
       const data = await res.json();
       setClients(data);
     } catch (error) {
