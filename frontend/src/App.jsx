@@ -3,7 +3,7 @@ import Nav from "./components/Nav/Nav"
 /*import './App.css'*/
 import Games from "./pages/games/games"
 import Clients from './pages/clients/clients';
-import CardGame from './pages/gameCard/gameCard';
+
 
 
 function App() {
