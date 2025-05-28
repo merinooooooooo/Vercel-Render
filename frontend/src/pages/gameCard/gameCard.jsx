@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "./CardGame.css";
-
+import "./gameCard.css"; // Asegúrate de tener un archivo CSS para los estilos
 const deck = [
   { suit: "♠", value: "A", points: 11 },
   { suit: "♠", value: "2", points: 2 },
